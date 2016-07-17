@@ -17,8 +17,8 @@ public class Subsets {
                 if (i + 1 != write)
                    System.out.print(", "); 
             }
-        System.out.println("}");
-        return; 
+            System.out.println("}");
+            return; 
         }
 
         printSubsets(set, read + 1, subset, write); // don't select
