@@ -1,7 +1,8 @@
 public class NQueens {
 
     public static void main(String[] args) {
-        printPermutations(args);
+        String[] s = {"1", "2", "3", "4"};
+        printPermutations(s);
     }
     private static void printPermutations(Object[] arr) {
         printPermutations(arr, 0);
