@@ -27,13 +27,13 @@ public class MatrixBestPath {
             return arr[i][j];
 
         if (i == M - 1)
-            return arr[i][j] + bestPath(arr, i, j++);
+            return arr[i][j] + bestPath(arr, i, j + 1);
         // j + 1  is the same as ++j NOT j++
 
         if (j == N - 1)
-            return arr[i][j] + bestPath(arr, i++, j);
+            return arr[i][j] + bestPath(arr, i + 1, j);
 
-        return Math.max(arr[i][j] + bestPath(arr, ++i, j), arr[i][j] + bestPath(arr, i, ++j));
+        return Math.max(arr[i][j] + bestPath(arr, i + 1, j), arr[i][j] + bestPath(arr, i, j + 1));
     }
 
     public static class TestCase {
