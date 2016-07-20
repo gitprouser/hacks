@@ -16,7 +16,7 @@ public class NQueens {
    
         for (int j = i; j < arr.length; j++) {
             swap(arr, i, j);
-            if (isNQueens(arr, i))
+            if (isNQueens(arr, i))  // Backtracking
                 printPermutations(arr, i+1);
             swap(arr, i, j);
         }
