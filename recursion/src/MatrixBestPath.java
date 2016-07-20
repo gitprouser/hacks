@@ -4,9 +4,10 @@ public class MatrixBestPath {
         int errors = 0;
         for (int i = 0; i < tests.length; i++) {
             result = bestPath(tests[i].arr);
-            if (result != tests[i].result)
-                System.out.println("Error: Best path of test case number " + i + " is " + tests[i].result + ". Got " + result + " instead");
-            errors++;
+            if (result != tests[i].result) {
+                System.out.println("Error: Best path of test case number " + (i + 1) + " is " + tests[i].result + ". Got " + result + " instead");
+                errors++;
+            }
         }
 
         if (errors > 0)
@@ -20,10 +21,19 @@ public class MatrixBestPath {
     }
 
     private static int bestPath(int[][] arr, int i, int j) {
-        if (i == arr.length && j == arr[0].length)
+        int M = arr.length;
+        int N = arr[0].length;
+        if (i == M - 1 && j == N - 1)
             return arr[i][j];
-        else
-            return Math.max(bestPath(arr, i++, j), bestPath(arr, i, j++));
+
+        if (i == M - 1)
+            return arr[i][j] + bestPath(arr, i, ++j);
+        // j + 1  is the same as ++j NOT j++
+
+        if (j == N - 1)
+            return arr[i][j] + bestPath(arr, ++i, j);
+
+        return Math.max(arr[i][j] + bestPath(arr, ++i, j), arr[i][j] + bestPath(arr, i, ++j));
     }
 
     public static class TestCase {
@@ -37,16 +47,15 @@ public class MatrixBestPath {
     }
 
     private static int[][] arr1 = {{9}};
-//    private static int[][] arr2 = {{1, 2, 3}};
-//    private static int[][] arr3 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-//    private static int[][] arr4 = { {2, 2, 1, 1, 1}, {1, 2, 1, 1, 1},
-//                                    {1, 2, 2, 1, 1}, {1, 1, 2, 2, 1},
-//                                    {1, 1, 1, 2, 2}};
+    private static int[][] arr2 = {{1, 2, 3}};
+    private static int[][] arr3 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    private static int[][] arr4 = {{2, 2, 1, 1, 1}, {1, 2, 1, 1, 1},
+            {1, 2, 2, 1, 1}, {1, 1, 2, 2, 1},
+            {1, 1, 1, 2, 2}};
     private static TestCase tests[] = {
-            new TestCase(arr1, 9)
-//        ,
-//            new TestCase(arr2, 6),
-//            new TestCase(arr3, 29),
-//            new TestCase(arr4, 18)
+            new TestCase(arr1, 9),
+            new TestCase(arr2, 6),
+            new TestCase(arr3, 29),
+            new TestCase(arr4, 18)
     };
 }
