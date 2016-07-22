@@ -5,7 +5,12 @@
     <output-test url="file:///test/interviewQuestions" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/recursion/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/recursion" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/concurrency" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/misc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/strings" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/output" />
     </content>
     <orderEntry type="inheritedJdk" />
