@@ -26,8 +26,8 @@ public class BulbSwitch {
         if (i > j)
             return null;
         else {
-            Node l = _buildTree(i, i + (j / 2));
-            Node r = _buildTree(i + (j/2) + 1, j);
+            Node l = _buildTree(i, (i + j) / 2);
+            Node r = _buildTree((i + j)/2 + 1, j);
             return new Node(i, j, l, r);
         }
     }
@@ -37,10 +37,3 @@ public class BulbSwitch {
         System.out.println(root.startIdx);
     }
 }
-
-/**
- *
- Node l = _buildTree(i, (i + j) / 2);
- Node r = _buildTree((i + j)/2 + 1, j);
-
- */
