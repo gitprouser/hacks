@@ -4,13 +4,16 @@ import java.util.List;
 public class DecodeWays {
     public static void main(String[] args) {
         String s = "12";
+
         List<String> result = new ArrayList<>();
-        List<String> result1 = new ArrayList<>();
         _decodeWays2(s, "", result);
         System.out.println("result1");
         print(result);
+
+        List<String> result1 = new ArrayList<>();
         _decodeWays1(s, "", result1);
         print(result1);
+
         System.out.println("Number of ways to Decode string:" + numDecodeWays(s));
     }
 
