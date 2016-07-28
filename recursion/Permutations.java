@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Stack;
 
@@ -7,9 +8,8 @@ public class Permutations {
     // DFS approach	
     public static List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
-        if (nums == null || nums.length == 0) {
+        if (nums == null || nums.length == 0)
             return result;
-        }
         // use a stack to do DFS
         // use DFS recursion to fill in the result list
         _permute(result, new Stack<>(), nums);
@@ -20,7 +20,7 @@ public class Permutations {
         // if the stack reaches a leaf of the tree, then add the content to the result;
         // once the method returns, the stack will be popped by one element (see the last
         // statement)
-        if (stack.size() == nums.length) { // exit condition <-------
+        if (stack.size() == nums.length) {
             result.add(new ArrayList<>(stack));
             return; // this return also causes pop
         }
@@ -38,9 +38,15 @@ public class Permutations {
         } // overflow pop the stack and Return...
     }
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3};
+        int[] nums = {1, 2, 3, 4};
 
-        permute(nums);
+        List<List<Integer>> result = permute(nums);
+        for(List<Integer> list: result) {
+            for (int i : list) {
+                System.out.print(i + " ");
+            }
+            System.out.println();
+        }
     }
 
 

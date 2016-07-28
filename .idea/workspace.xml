@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7866e901-ee7e-4d29-8a72-17675ef35020" name="Default" comment="WildCard Problem solution">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/recursion/Fib.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/recursion/Permutations.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/interviewQuestions.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recursion/MatchParanthesis.java" afterPath="$PROJECT_DIR$/recursion/MatchParanthesis.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recursion/Permutations.java" afterPath="$PROJECT_DIR$/recursion/Permutations.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="interviewQuestions.iws" />
@@ -118,11 +113,11 @@
       <file leaf-file-name="Permutations.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/recursion/Permutations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.80345285" vertical-offset="1300" max-vertical-offset="2055">
-              <caret line="127" column="25" selection-start-line="127" selection-start-column="25" selection-end-line="127" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.43824703" vertical-offset="0" max-vertical-offset="900">
+              <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4584#4593#0" expanded="true" />
+                <element signature="e#1723#1843#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -165,8 +160,8 @@
         <option value="$PROJECT_DIR$/recursion/MatchParanthesis.java" />
         <option value="$PROJECT_DIR$/recursion/Fib.java" />
         <option value="$PROJECT_DIR$/.idea/.name" />
-        <option value="$PROJECT_DIR$/recursion/Permutations.java" />
         <option value="$PROJECT_DIR$/strings/DecodeWays.java" />
+        <option value="$PROJECT_DIR$/recursion/Permutations.java" />
       </list>
     </option>
   </component>
@@ -923,7 +918,7 @@
       <workItem from="1469641096239" duration="17000" />
       <workItem from="1469652900096" duration="979000" />
       <workItem from="1469695671248" duration="48000" />
-      <workItem from="1469695781896" duration="73000" />
+      <workItem from="1469695781896" duration="1421000" />
     </task>
     <task id="LOCAL-00001" summary="isPalindrome">
       <created>1468825804184</created>
@@ -979,11 +974,17 @@
       <option name="project" value="LOCAL" />
       <updated>1469396012096</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Cleaning up Permutations Code&#10;">
+      <created>1469697044984</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1469697044984</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37824000" />
+    <option name="totallyTimeSpent" value="39172000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -993,8 +994,9 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32694763" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32650447" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47119078" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1015,7 +1017,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1044,11 +1045,12 @@
     <MESSAGE value="WildCard Problem solution" />
     <MESSAGE value="My Solution which is not working." />
     <MESSAGE value="Added solution to the problem" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added solution to the problem" />
+    <MESSAGE value="Cleaning up Permutations Code&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaning up Permutations Code&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1443,11 +1445,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/recursion/Permutations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.80345285" vertical-offset="1300" max-vertical-offset="2055">
-          <caret line="127" column="25" selection-start-line="127" selection-start-column="25" selection-end-line="127" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.43824703" vertical-offset="0" max-vertical-offset="900">
+          <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4584#4593#0" expanded="true" />
+            <element signature="e#1723#1843#0" expanded="false" />
           </folding>
         </state>
       </provider>
