@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Stack;
 
@@ -12,33 +11,35 @@ public class Permutations {
             return result;
         // use a stack to do DFS
         // use DFS recursion to fill in the result list
-        _permute(result, new Stack<>(), nums);
+        _permute(result, new Stack<>(), nums, new ArrayList<>());
         return  result;
     }
 
-    private static void _permute(List<List<Integer>> result, Stack<Integer> stack, int[] nums) {
+    private static void _permute(List<List<Integer>> result, Stack<Integer> stack, int[] nums, List<Integer> seenBefore) {
         // if the stack reaches a leaf of the tree, then add the content to the result;
         // once the method returns, the stack will be popped by one element (see the last
         // statement)
         if (stack.size() == nums.length) {
-            result.add(new ArrayList<>(stack));
+            if (isNotInResult(new ArrayList<>(stack), result))
+                result.add(new ArrayList<>(stack));
             return; // this return also causes pop
         }
 
         for (int i = 0; i < nums.length; i++) {
-            if (stack.contains(nums[i]))
-                // if this number was visited already,
-                // then don't add it to the stack again
+            // if this number was visited already,
+            // then don't add it to the stack again
+            if (seenBefore.contains(i))
                 continue;
 
-            // otherwise add it to the stack
             stack.push(nums[i]);
-            _permute(result, stack, nums);
+            seenBefore.add(i);
+            _permute(result, stack, nums, seenBefore);
             stack.pop();
+            seenBefore.remove(seenBefore.size() - 1);
         } // overflow pop the stack and Return...
     }
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 4};
+        int[] nums = {4,4,4,2};
 
         List<List<Integer>> result = permute(nums);
         for(List<Integer> list: result) {
@@ -50,6 +51,19 @@ public class Permutations {
     }
 
 
+    private static boolean isNotInResult(List<Integer> currResult, List<List<Integer>> result) {
+        for(List<Integer> list : result) {
+            if (list.size() != currResult.size())
+                return false;
+
+                int i = 0;
+                while(i < list.size() && list.get(i) == currResult.get(i++))
+                    ;
+                if (i == list.size())
+                    return false;
+        }
+        return true;
+    }
     //    private static void _permuteWithIndent(List<List<Integer>> result, Stack<Integer> stack, int[] nums, int indent) {
 //        // if the stack reaches a leaf of the tree, then add the content to the result;
 //        // once the method returns, the stack will be popped by one element (see the last
