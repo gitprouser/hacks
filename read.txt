@@ -1,0 +1,343 @@
+# Harsh
+def bucket_sort(input_str):
+    buckets = [0] * 26
+
+    for char in input_str:
+        index = ord(char) - ord('a')
+        buckets[index] += 1
+
+    output = ''
+    for i in range(len(buckets)):
+        for j in range(buckets[i]):
+            output += chr(i + ord('a'))
+
+    return output
+
+
+print bucket_sort('cba')
+
+
+
+# Ruchir
+def bucketSort( sample_string):
+    sample_list = list(sample_string)
+    maximum = 26
+    counter = [0] * ( maximum + 1 )
+
+    for ch in sample_list:
+      counter[ord(ch) - ord('a')] += 1
+    ndx = 0;
+
+    for i in range( len( counter ) ):
+      while 0 < counter[i]:
+        sample_list[ndx] = counter[i]
+        ndx += 1
+        counter[i] -= 1
+    return ''.join(sample_list)
+
+
+
+Tgma
+
+
+
+
+
+#santosh
+// Bucketsort integers  in C
+
+void bucket_sort (int arr[], int n)
+ {
+    //Here range is [1,1000]
+
+    int m = 1001;
+
+    //Create m empty buckets
+
+    int buckets[m];
+
+    //Intialize all buckets to 0
+
+    for (int i = 0; i < m; ++i)
+
+      buckets[i] = 0;
+
+
+    //Insert them to buckets
+
+    for (int i = 0; i < n; ++i)
+
+      ++buckets[arr[i]];
+
+
+
+    //Sort  and concatenate
+
+    for (int i = 0, j = 0; j < m; ++j)
+
+      for (int k = buckets[j]; k > 0; --k)
+
+        arr[i++] = j;
+
+    }
+
+#Nick:
+
+import sys
+
+def bucketsort(iString):
+
+    count = [0]*128
+
+    for i in iString:
+        index = ord(i)
+        count[index] = count[index] + 1
+
+
+    for j in range(0,128):
+        for k in range(0,count[j]):
+            sys.stdout.write(chr(j))
+
+
+iString = "interview kickstart"
+bucketsort(iString)
+
+
+# tj
+#!/usr/bin/env ruby
+def bucket_sort(str)
+  buckets = Array.new(127) { 0 } # ascii table
+  str.split(//).each { |letter| buckets[letter.ord] += 1 }
+  buckets.each_with_index.map { |count, ord| ord.chr * count }.join
+end
+# sorted = bucket_sort('interview kickstart')
+# p sorted
+# p sorted == " aceeiiikknrrstttvw"
+
+
+#GURU
+ static String BucketSort(String input)
+        {
+            List<int>[] bucket = new List<int>[26];
+
+            for (int i = 0; i < bucket.Length; i++)
+            {
+                bucket[i] = new List<int>();
+            }
+
+            for(int j=0; j<input.Length;j++ )
+            {
+                bucket[(int)input[j] -'a'].Add(j);
+            }
+
+            String returnStr = "";
+            for (int i = 0; i < bucket.Length; i++)
+            {
+                foreach(int pos in bucket[i])
+                {
+                    returnStr += input[pos];
+                }
+            }
+                return returnStr;
+        }
+
+
+# tj
+def merge_sorted_arrays(a, b)
+  ai, bi, ret = 0, 0, []
+  loop do
+    if ai >= a.size && bi >= b.size
+      break
+    elsif ai >= a.size || a[ai] > b[bi]
+      ret << b[bi]; bi += 1
+    elsif bi >= b.size || a[ai] <= b[bi]
+      ret << a[ai]; ai += 1
+    end
+  end
+  ret
+end
+
+
+# harsh
+def merge(arr1, arr2):
+    i = 0
+    j = 0
+    k = 0
+
+    output = [0] * (len(arr1) + len(arr2))
+
+    while i < len(arr1) and j < len(arr2):
+        if arr1[i] <= arr2[j]:
+            output[k] = arr1[i]
+            i += 1
+        else:
+            output[k] = arr2[j]
+            j += 1
+        k += 1
+
+    while i < len(arr1):
+        output[k] = arr1[i]
+        i += 1
+        k += 1
+
+    while j < len(arr2):
+        output[k] = arr2[j]
+        j += 1
+        k += 1
+
+    return output
+
+print merge([4,6], [1,2])
+
+
+# Ruchir
+
+def combine(data1, data2):
+    combined = [0 for _ in xrange(len(data1) + len(data2))]
+    i,j,k = 0,0,0
+    while (i < len(data1) and j < len(data2)):
+        if data1[i] < data2[j]:
+            combined[k] = data1[i]
+            i += 1
+        else:
+            combined[k] = data2[j]
+            j += 1
+        k += 1
+    while i < len(data1):
+        combined[k] = data1[i]
+        i += 1
+        k += 1
+    while j < len(data2):
+        combined[k] = data2[j]
+        j += 1
+        k += 1
+    return combined
+
+>>> combine([1,4,7], [2,3,5])
+[1, 2, 3, 4, 5, 7]
+
+
+
+//Merge Sort // Neera
+static int[] merge(int[] a1, int[] a2) {
+    if (a1.length == 0) return a2;
+    if (a2.length == 0) return a1;
+    int[] res = new int[a1.length + a2.length];
+    int m = 0; //a1 pointer
+    int n = 0;  //a2 pointer
+    int k = 0;  // merged list pointer
+    while (m < a1.length && n < a2.length) {
+        if (a1[m] > a2[n]) {
+            res[k++] = a2[n++];
+        } else if (a1[m] < a2[n]) {
+            res[k++] = a1[m++];
+        } else {
+            res[k++] = a1[m++];
+            res[k++] = a2[n++];
+        }
+    }
+    if (m < a1.length) {
+        while (m < a1.length) {
+            res[k++] = a1[m++];
+        }
+    }
+    if (n < a2.length) {
+        while (n < a1.length) {
+            res[k++] = a1[n++];
+        }
+    }
+    return res;
+}
+
+// merge function
+    static int[] merge(int[] a1, int[] a2) {
+        int i =0, j = 0, k = 0;
+        int[] result = new int[a1.length + a2.length];
+        while(i < a1.length && j < a2.length) {
+            if (a1[i] <= a2[j])
+                result[k++] = a1[i++];
+
+            else if (a2[j] < a1[i])
+                result[k++] = a2[j++];
+        }
+        while(j < a2.length) {
+            result[k++] = a2[j++];
+        }
+        while(i < a1.length)
+            result[k++] = a1[i++];
+        return result;
+    }
+
+    // Just print out the value.. dont return anything
+    binarySearch(int[] data, int start, int end, int value)
+
+    //this returns index of value in data array, -1 if not found
+
+     public static int binarySearch(int[] data, int start, int end, int value){
+            if(start > end)
+                return -1;
+            if(start == end){
+                if(data[start] == value)
+                    return start;
+                else
+                    return -1;
+            }
+            int mid = (start+end) / 2;
+            if(data[mid] == value)
+                return mid;
+            if(data[mid] < value)
+                return binarySearch(data, start, mid-1, value);
+            else
+                return binarySearch(data, mid+1, end , value);
+        }
+
+
+    # Ruchir
+
+    def binarySearch(data, start, end,  value):
+        if start > end:
+            return False
+        if len(data) == 0:
+            return False
+        else:
+            midpoint = start + (end - start)//2
+            if data[midpoint]  == value:
+                return True
+            else:
+                if (value < data[midpoint]):
+                    return binarySearch(data, start, midpoint, value)
+                else:
+                    return binarySearch(data, midpoint+1, end, value)
+
+    >>> binarySearch([1,2,3,4,5,6], 0, 5, 3)
+    True
+    >>> binarySearch([1,2,3,4,5,6], 0, 5, 7)
+    False
+
+    # Nick
+
+    import math
+
+    def binarySearch(data, start, end, value):
+
+        N_low = int(math.floor((end-start) / 2.0))
+        N_high = int(math.ceil((end-start) / 2.0))
+
+        if value < data[N_low]:
+            binarySearch(data, start, start+N_low,value)
+        elif value > data[N_low]:
+            binarySearch(data, end-N_high,end,value)
+        elif value == data[N_low]:
+            print "Found"
+            print N_low
+
+
+
+
+
+
+    data = [1,2,3,4,5,6,7,8,9]
+
+    binarySearch(data,0,len(data),3)
+
+

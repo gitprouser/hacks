@@ -1,4 +1,7 @@
+import sun.awt.image.IntegerComponentRaster;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
@@ -15,53 +18,87 @@ public class Permutations {
         return  result;
     }
 
-    private static void _permute(List<List<Integer>> result, Stack<Integer> stack, int[] nums, List<Integer> seenBefore) {
+    /**
+     * Recursive call to find all the permutations in a given array of integers.
+     * @param result The final O(n.n!) results comprising of all permutations for a given array input.
+     * @param stack Keeps track of the values which have been visited.
+     * @param nums Input Array of integers.
+     * @param seenBeforeIndexes Keeps track of the indexes in input array which have been visited.
+     */
+    private static void _permute(List<List<Integer>> result, Stack<Integer> stack,
+                                 int[] nums, List<Integer> seenBeforeIndexes)
+    {
         // if the stack reaches a leaf of the tree, then add the content to the result;
         // once the method returns, the stack will be popped by one element (see the last
         // statement)
         if (stack.size() == nums.length) {
-            if (isNotInResult(new ArrayList<>(stack), result))
-                result.add(new ArrayList<>(stack));
+            List<Integer> currResult = new ArrayList<>(stack);
+            if (isNotDuplicateResult(currResult, result))
+                result.add(currResult);
             return; // this return also causes pop
         }
 
         for (int i = 0; i < nums.length; i++) {
             // if this number was visited already,
             // then don't add it to the stack again
-            if (seenBefore.contains(i))
+            if (seenBeforeIndexes.contains(i))
                 continue;
 
             stack.push(nums[i]);
-            seenBefore.add(i);
-            _permute(result, stack, nums, seenBefore);
+            seenBeforeIndexes.add(i);
+            _permute(result, stack, nums, seenBeforeIndexes);
             stack.pop();
-            seenBefore.remove(seenBefore.size() - 1);
+            seenBeforeIndexes.remove(seenBeforeIndexes.size() - 1);
         } // overflow pop the stack and Return...
     }
-    public static void main(String[] args) {
-        int[] nums = {4,4,4,2};
 
-        List<List<Integer>> result = permute(nums);
-        for(List<Integer> list: result) {
-            for (int i : list) {
-                System.out.print(i + " ");
+    public static void _permutation(List<List<Integer>> result, int[] arr, int i) {
+        if (i == arr.length) {
+            boolean isNotVisited = true;
+            isNotVisited = isResultSame(result, arr);
+
+            if (isNotVisited) {
+                List<Integer> list = new ArrayList<>();
+                for (int k : arr)
+                    list.add(k);
+                result.add(list);
             }
+            return;
+        }
+
+        for (int j = i; j < arr.length; j++) {
+            swap(arr, i, j);
+            _permutation(result, arr, i + 1);
+            swap(arr, i, j);
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 1, 1};
+        List<List<Integer>> result = new ArrayList<>();
+        _permutation(result, nums, 0);
+//        List<List<Integer>> result = permute(nums);
+        for(List<Integer> list: result) {
+            for (int i : list)
+                System.out.print(i + " ");
             System.out.println();
         }
     }
 
 
-    private static boolean isNotInResult(List<Integer> currResult, List<List<Integer>> result) {
-        for(List<Integer> list : result) {
-            if (list.size() != currResult.size())
+    private static boolean isNotDuplicateResult(List<Integer> currResult, List<List<Integer>> result) {
+        for(List<Integer> list : result)
+            if (list.equals(currResult))
                 return false;
 
-                int i = 0;
-                while(i < list.size() && list.get(i) == currResult.get(i++))
-                    ;
-                if (i == list.size())
-                    return false;
-        }
+//                if (list == currResult)
+//                       return false;
+//                int i = 0;
+//                while(i < list.size() && list.get(i) == currResult.get(i++))
+//                    ;
+//                if (i == list.size())
+//                    return false;
+//        }
         return true;
     }
     //    private static void _permuteWithIndent(List<List<Integer>> result, Stack<Integer> stack, int[] nums, int indent) {
@@ -171,4 +208,33 @@ public class Permutations {
 //        }
 //        return returnValues;
 //    }
+
+    static void swap(int[] a, int i, int j) {
+        int tmp = a[i];
+        a[i] = a[j];
+        a[j] = tmp;
+    }
+
+    static boolean isResultSame(List<List<Integer>> result, int[] arr) {
+        boolean isNotVisited = true;
+        for(List<Integer> list : result) {
+            if (isSame(list, arr)) {
+                isNotVisited = false;
+                break;
+            }
+        }
+        return isNotVisited;
+    }
+
+    static boolean isSame(List<Integer> list, int[] arr) {
+        if (list.size() != arr.length)
+            return false;
+
+        int i = 0;
+        while(i <arr.length && list.get(i) == arr[i])
+            i++;
+        if (i == arr.length)
+            return true;
+        return false;
+    }
 }
