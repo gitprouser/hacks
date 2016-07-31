@@ -1,7 +1,4 @@
-import sun.awt.image.IntegerComponentRaster;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
@@ -54,8 +51,7 @@ public class Permutations {
 
     public static void _permutation(List<List<Integer>> result, int[] arr, int i) {
         if (i == arr.length) {
-            boolean isNotVisited = true;
-            isNotVisited = isResultSame(result, arr);
+            boolean isNotVisited = isResultSame(result, arr);
 
             if (isNotVisited) {
                 List<Integer> list = new ArrayList<>();
