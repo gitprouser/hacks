@@ -1,15 +1,17 @@
 public class NQueens {
 
     public static void main(String[] args) {
-        solveNQueens(8);
+        solveNQueens(3);
     }
 
     private static void solveNQueens(int n) {
         int[] arr = new int[n];
         for (int i = 0; i < arr.length; i++)
             arr[i] = i;
-//        _solveNQueensForAllSolutions(arr, 0);
-        _solveNQueensReturnSingleSolution(arr, 0);
+            // _solveNQueensForAllSolutions(arr, 0);
+        boolean isSolvable = _solveNQueensReturnSingleSolution(arr, 0);
+        if (!isSolvable)
+            System.out.println("" + isSolvable + " for " + n + "x" + n);
     }
 
     // returns only a single solution.
