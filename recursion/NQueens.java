@@ -8,9 +8,26 @@ public class NQueens {
         int[] arr = new int[n];
         for (int i = 1; i <= arr.length; i++)
             arr[i - 1] = i;
-        _solveNQueensForAllSolutions(arr, 0);
-
+//        _solveNQueensForAllSolutions(arr, 0);
+        _solveNQueensReturnSingleSolution(arr, 0, true);
     }
+
+    private static boolean _solveNQueensReturnSingleSolution(int[] arr, int i, boolean isNotSolved) {
+        if (i == arr.length) {
+            for (int j : arr) System.out.print(" " + j);
+            System.out.println();
+            return false;
+        }
+
+        for (int j = i; j < arr.length; j++) {
+            swap(arr, i, j);
+            if (isNotSolved && isQueenThreatning(arr, i))
+               isNotSolved = _solveNQueensReturnSingleSolution(arr, i + 1, isNotSolved);
+            swap(arr, i, j);
+        }
+        return isNotSolved;
+    }
+
 
     private static void _solveNQueensForAllSolutions(int[] arr, int i) {
         if (i == arr.length) {
