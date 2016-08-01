@@ -1,31 +1,35 @@
 public class NQueens {
 
     public static void main(String[] args) {
-        solveNQueens(4);
+        solveNQueens(8);
     }
 
     private static void solveNQueens(int n) {
         int[] arr = new int[n];
-        for (int i = 1; i <= arr.length; i++)
-            arr[i - 1] = i;
+        for (int i = 0; i < arr.length; i++)
+            arr[i] = i;
 //        _solveNQueensForAllSolutions(arr, 0);
-        _solveNQueensReturnSingleSolution(arr, 0, true);
+        _solveNQueensReturnSingleSolution(arr, 0);
     }
 
-    private static boolean _solveNQueensReturnSingleSolution(int[] arr, int i, boolean isNotSolved) {
+    // returns only a single solution.
+    private static boolean _solveNQueensReturnSingleSolution(int[] arr, int i) {
         if (i == arr.length) {
             for (int j : arr) System.out.print(" " + j);
             System.out.println();
-            return false;
+            return true; // NQueens has been solved.
         }
 
+        boolean isSolved = false;
         for (int j = i; j < arr.length; j++) {
             swap(arr, i, j);
-            if (isNotSolved && isQueenThreatning(arr, i))
-               isNotSolved = _solveNQueensReturnSingleSolution(arr, i + 1, isNotSolved);
+            if (isNewQueenThreatningOtherQueens(arr, i))  // If NQueens has been solved don't permute anymore
+               isSolved = _solveNQueensReturnSingleSolution(arr, i + 1);
+                if (isSolved)
+                    return isSolved;
             swap(arr, i, j);
         }
-        return isNotSolved;
+        return false;
     }
 
 
@@ -33,11 +37,12 @@ public class NQueens {
         if (i == arr.length) {
             for (int j : arr) System.out.print(" " + j);
             System.out.println();
+            return;
         }
 
         for (int j = i; j < arr.length; j++) {
             swap(arr, i, j);
-            if (isQueenThreatning(arr, i))  // Backtracking
+            if (isNewQueenThreatningOtherQueens(arr, i))  // Backtracking
                 _solveNQueensForAllSolutions(arr, i + 1);
             swap(arr, i, j);
         }
@@ -50,9 +55,10 @@ public class NQueens {
         arr[j] = tmp;
     }
 
-    private static boolean isQueenThreatning(int[] game, int nextQueen) {
-        for (int j = 0; j < nextQueen; j++)
-            if (Math.abs(game[nextQueen] - game[j])  == Math.abs(nextQueen - j))
+    // NewQueen against all the previous queens.
+    private static boolean isNewQueenThreatningOtherQueens(int[] game, int newQueen) {
+        for (int j = 0; j < newQueen; j++)
+            if (Math.abs(game[newQueen] - game[j])  == Math.abs(newQueen - j))
                 return false;
         return true;
     }
