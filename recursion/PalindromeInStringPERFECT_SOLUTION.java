@@ -10,25 +10,25 @@ public class PalindromeInStringPERFECT_SOLUTION {
         Set<String> result = new HashSet<>();
         findPalindromes(s, result, new StringBuilder(), 0);
         for (String str : result)
-            System.out.println(str);
+            System.out.println("\"" + str + "\"");
     }
 
-    static void findPalindromes(String s, Set<String> result, StringBuilder sb, int pos) {
+    static void findPalindromes(String s, Set<String> result, StringBuilder sb, int position) {
         if (isPalindrome(sb))
             result.add(sb.toString());
 
-        for (int i = pos; i < s.length(); i++) {
+        for (int i = position; i < s.length(); i++) {
             sb.append(s.charAt(i));
             findPalindromes(s, result, sb, i + 1);
             sb.deleteCharAt(sb.length() - 1);
         }
     }
 
-    static boolean isPalindrome(StringBuilder s) {
-        if (s == null || s.length() == 0)
+    static boolean isPalindrome(StringBuilder sb) {
+        if (sb == null || sb.length() == 0)
             return false;
-        for (int i = 0, j = s.length() - 1; i < j; i++, j--)
-            if (s.charAt(i) != s.charAt(j))
+        for (int i = 0, j = sb.length() - 1; i < j; i++, j--)
+            if (sb.charAt(i) != sb.charAt(j))
                 return false;
         return true;
     }
