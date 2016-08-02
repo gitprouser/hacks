@@ -19,7 +19,7 @@ public class Permutations {
 
     static void _permute(List<List<Integer>> result, Stack<Integer> stack, int[] nums) {
         if (stack.size() == nums.length) {
-            result.add(stack);
+            result.add(new ArrayList<>(stack));
             return;
         }
 
