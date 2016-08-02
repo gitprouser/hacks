@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
@@ -34,7 +32,7 @@ public class Permutations {
         }
     }
 
-    public static void _permutation(List<List<Integer>> result, int[] arr, int i) {
+    public static void _permutation_using_Swap(List<List<Integer>> result, int[] arr, int i) {
         if (i == arr.length) {
             List<Integer> list = new ArrayList<>();
             for (int k : arr)
@@ -45,7 +43,7 @@ public class Permutations {
 
         for (int j = i; j < arr.length; j++) {
             swap(arr, i, j);
-            _permutation(result, arr, i + 1);
+            _permutation_using_Swap(result, arr, i + 1);
             swap(arr, i, j);
         }
     }
@@ -58,7 +56,7 @@ public class Permutations {
 
     public static void main(String[] args) {
         int[] nums = {1, 2, 3};
-        //        _permutation(result, nums, 0);
+        // _permutation_using_Swap(result, nums, 0);
 
         List<List<Integer>> result = permute(nums);
         for(List<Integer> list: result) {
