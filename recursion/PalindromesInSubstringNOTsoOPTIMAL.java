@@ -5,19 +5,13 @@ import java.util.Stack;
 /**
  * Created on 8/1/16.
  */
-public class PalindromesInSubstring {
+public class PalindromesInSubstringNOTsoOPTIMAL {
 
     public static void main(String[] args) {
         String s = "abca";
         for (String elem : findPalindromes(s)) {
             System.out.println(elem);
         }
-//        Stack<Character> stack = new Stack<>();
-//        stack.push('a');
-//        stack.push('b');
-//        stack.push('b');
-//        stack.push('a');
-//        System.out.println(isPalindrome(stack));
     }
 
     static Set<String> findPalindromes(String s) {
