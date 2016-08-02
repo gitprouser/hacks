@@ -21,7 +21,7 @@ public class PermutationsStrings {
         }
 
         for (int i = 0; i < s.length(); i++) {
-            if (sb.indexOf(""+s.charAt(i)) != -1) {
+            if (sb.indexOf(""+s.charAt(i)) != -1) {  // Find a better way to do this.
                 continue;
             }
             sb.append(s.charAt(i));
