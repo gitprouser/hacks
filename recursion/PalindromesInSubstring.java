@@ -28,7 +28,7 @@ public class PalindromesInSubstring {
     }
 
     static void _permute(Stack<Character> stack, Set<String> result, char[] num, boolean[] visited) {
-        if (isPalindrome(stack) && !result.contains(stack))
+        if (isPalindrome(stack) && !result.contains(toStringStack(stack)))
             result.add(toStringStack(stack));
 
         if (stack.size() == num.length)
@@ -47,6 +47,9 @@ public class PalindromesInSubstring {
     }
 
     static String toStringStack(Stack<Character> stack) {
+        if (stack.isEmpty())
+            return "";
+
         Stack<Character> tmpStack = new Stack<>();
         deepCopyStack(stack, tmpStack);
 
@@ -58,14 +61,16 @@ public class PalindromesInSubstring {
     }
 
     static boolean isPalindrome(Stack<Character> s) {
+        if (s.empty())
+            return true;
 
         Stack<Character> tmpStack = new Stack<>();
         deepCopyStack(s, tmpStack);
 
-        char[] c = new char[s.size()];
+        char[] c = new char[tmpStack.size()];
         int j = 0;
-        while(!s.isEmpty())
-            c[j++] = s.pop();
+        while(!tmpStack.isEmpty())
+            c[j++] = tmpStack.pop();
 
         for (int i = 0; i < c.length / 2; i++) {
             if (c[i] != c[c.length - i - 1])
@@ -81,8 +86,10 @@ public class PalindromesInSubstring {
         while(!a.isEmpty())
             tmp[j++] = a.pop();
 
-        for(int i = a.size() - 1; i >= 0; i--) {
+        for(int i = tmp.length - 1; i >= 0; i--) {
             b.push(tmp[i]);
+            a.push(tmp[i]);
         }
+//        System.out.println("Stack A:" + b.peek() + " STack b :" + a.peek());
     }
 }
