@@ -28,7 +28,6 @@ public class MinHeap {
 
         for(int i = TOP_K_ELEMENTS; i < a.length; i++) {
             heapify(result);
-            print("After Heapify" + i, result);
             if(a[i] > result[1])
                 result[1] = a[i];
         }
