@@ -5,7 +5,7 @@ import java.util.Random;
  */
 public class MinHeap {
     static final int INPUT_ARRAY = 100000;
-    static final int TOP_K_ELEMENTS = 10;
+    static final int TOP_K_ELEMENTS = 9;
     static final int LARGEST_RANDOM_NUMBER = 100000;
 
     static Random random = new Random();
@@ -20,7 +20,27 @@ public class MinHeap {
 
     // prints the top 5 elements in the given array.
     static void minHeap(int[] a) {
-        int[] result = new int[TOP_K_ELEMENTS + 2];
+        int[] result;
+        if (TOP_K_ELEMENTS % 2 == 0)
+            result  = new int[TOP_K_ELEMENTS + 2]; // REMEMBER THE NUMBER NEEDS TO BE A MULTIPLE OF TWO
+        else
+            result = new int[TOP_K_ELEMENTS + 1];
+        /**
+         * if 10
+         * then
+         *    parent   left child       right child
+         *      (i)       (2*i)          (2*i + 1)
+         *      1           2               3
+         *      2           4               5
+         *      3           6               7
+         *      4           8               9
+         *      5           10              11
+         *
+         *      You were getting an offset by 1 wherein if the TOP_K results were:
+         *          - Even you were missing the last element, so you need TOP_K_ELEMENTS + 2 as the size of the array.
+         *          - Odd you were missing the last element, so you need TOP_K_ELEMENTS + 1 as the size of the array.
+         *
+         */
 
         for(int i = 1; i < result.length; i++)
             result[i] = a[i - 1];
