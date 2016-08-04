@@ -4,7 +4,7 @@ import java.util.Random;
  * Created on 8/3/16.
  */
 public class MinHeap {
-    static final int INPUT_ARRAY = 1000;
+    static final int INPUT_ARRAY = 100000;
     static final int TOP_K_ELEMENTS = 10;
     static final int LARGEST_RANDOM_NUMBER = 100000;
 
