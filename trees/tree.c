@@ -2,19 +2,19 @@
 #include<stdlib.h>
 
 struct node{
-    int data;
+    char data;
     struct node *_left, *_right;  
 }; 
 
 void preorder(struct node* curr);
 void postorder(struct node *curr);
 void inorder(struct node *curr);
-struct node* newNode(int data);
-struct node* buildTree(int arr[], int length);
+struct node* newNode(char data);
+struct node* buildTree(char arr[], int length);
 
 int main() {
-    int arr[]= {10, 3, 4, 5, 8, 1923, 12, 45};
-    struct node * root = buildTree(arr,8); 
+    char arr[]= {'+','6','4'};
+    struct node * root = buildTree(arr,3); 
 
     printf("preorder:\n");
     preorder(root); 
@@ -24,17 +24,16 @@ int main() {
     inorder(root);  
 }
 
-struct node * buildTree(int arr[], int length) {
+struct node * buildTree(char arr[], int length) {
     struct node * root = newNode(arr[0]);
     int i = 0;
-    while (i < length - 1) {
-        root->_left = newNode(arr[i++]);
-        root->_right = newNode(arr[i++]); 
-    }
+    root->_left = newNode(arr[i+1]);
+    root->_right = newNode(arr[i+2]); 
+    
     return (root);
 }
 
-struct node * newNode(int data) {
+struct node * newNode(char data) {
     struct node * node = (struct node *) malloc(sizeof(struct node));
     node->data = data;
     node->_left = NULL;
@@ -44,7 +43,7 @@ struct node * newNode(int data) {
 
 void preorder(struct node *curr) {
     if (curr) {
-        printf("%d ", curr->data);
+        printf("%c ", curr->data);
         preorder(curr->_left); 
         preorder(curr->_right);
     }
@@ -53,7 +52,7 @@ void preorder(struct node *curr) {
 void inorder(struct node *curr) {
     if (curr)  {
         inorder(curr->_left);
-        printf("%d ",curr->data);
+        printf("%c ",curr->data);
         inorder(curr->_right);
     }
 }
@@ -62,6 +61,6 @@ void postorder(struct node *curr) {
     if (curr) {
         postorder(curr->_left);
         postorder(curr->_right);
-        printf("%d ",curr->data);
+        printf("%c ",curr->data);
     } 
 }
