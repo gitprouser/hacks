@@ -56,6 +56,7 @@ public class MinHeap {
     }
 
     static void heapify(int[] result) {
+        boolean isNotHeapified = true;
         while(isNOTHeapify(result)) {
             for (int i = 1; i < result.length/2; i++) {
                 if (result[i] > result[2 * i])
