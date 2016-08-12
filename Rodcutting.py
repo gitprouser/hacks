@@ -11,3 +11,35 @@ def rod_cutting(prices, desired_length):
 	return dp_prices[desired_length]
 
 print rod_cutting([0,3,4,7,10,12], 4)
+
+
+// TJ code
+
+def maxRevenue(rodPrice,length):
+
+    maxArray = [0]*len(rodPrice)
+
+    maxArray[0] = rodPrice[0]
+    
+    for i in range(0,length+1):
+        
+        if i == 0:
+            maxArray[0] = rodPrice[0]
+            continue
+
+        maxPrice = 0
+
+        for j in range(0,i+1):
+            print maxPrice
+            print rodPrice[j] + maxArray[i-j]
+            maxPrice = max(rodPrice[j], maxArray[j-i]  + maxArray[i-j])
+
+        maxArray[i] = maxPrice
+  
+    print maxArray 
+    return maxArray[length]
+
+
+
+rodPrice = [2,3,5,8,10,13,15]
+print maxRevenue(rodPrice,5)
