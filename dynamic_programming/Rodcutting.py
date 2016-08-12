@@ -14,7 +14,6 @@ print rod_cutting([0,3,4,7,10,12], 4)
 
 
 // TJ code
-
 def maxRevenue(rodPrice,length):
     maxArray = [0]*len(rodPrice)
     maxArray[0] = rodPrice[0]
