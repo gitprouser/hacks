@@ -1,5 +1,3 @@
-import sun.awt.image.ImageWatched;
-
 /**
  * Created on 8/17/16.
  */
@@ -59,8 +57,6 @@ public class SumTwoLinkedLists {
         }
     }
 
-
-
     public static void main(String[] args) {
         Node head1 = new Node("9234", null, null);
         Node head1_1 = new Node("4567", null, null);
@@ -75,7 +71,7 @@ public class SumTwoLinkedLists {
         l1.insert(copyHead2_1);
         LinkedList l2 = new LinkedList(head2);
         l2.insert(head2_1);
-//        l2.insert(copyHead1_1);
+        l2.insert(copyHead1_1);
         System.out.println(l1.getAllString() + " " + l1.len);
         System.out.println(l2.getAllString() + " " + l2.len);
         System.out.println(sum(l1, l2));
