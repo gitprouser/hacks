@@ -13,13 +13,14 @@
 
 public class FirstBadVersion {
 
-    static int[] arr = {0,0,0,1,1};
-//                      0 1 2 3 4 5 6 7
+    static int[] arr = {0,0,1,1,1,1,2,2,2,3};
+//                      0 1 2 3 4 5 6 7 9
 
     public static int firstBadVersion(int n) {
         int start = 0, end = n - 1;
+        // Step 1. Remember you want to keep two elements to look up base
         while (start + 1 < end) {
-            int mid = start + (end -start) / 2;
+            int mid = start + (end -start) / 2;  // mid point best code.
             if (arr[mid] == 1) {
                 end = mid;
             } else {
@@ -32,7 +33,25 @@ public class FirstBadVersion {
         return end;
     }
 
+    public static int lastBadVersion(int n ) {
+        int start = 0, end = n - 1;
+        while(start + 1 < end) {
+            int mid = start + (end - start)/2;
+            if (arr[mid] == 1)
+                start = mid;
+            else if (arr[mid] > 1)
+                end = mid;
+            else
+                start = mid;
+        }
+        if (arr[end] == 1) {
+            return end;
+        }
+        return start;
+    }
+
     public static void main(String[] args) {
-        System.out.println(firstBadVersion(arr.length));
+        System.out.println("startIdx:" + firstBadVersion(arr.length));
+        System.out.println("endIdx:" + lastBadVersion(arr.length));
     }
 }

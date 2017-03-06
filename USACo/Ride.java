@@ -33,6 +33,6 @@ public class ride {
         for (char c : charArray) {
             cometInt *=  (c - 'A' + 1);
         }
-        return cometInt% 47;
+        return cometInt % 47;
     }
 }
