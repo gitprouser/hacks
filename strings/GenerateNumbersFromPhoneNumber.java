@@ -30,7 +30,7 @@ public class GenerateNumbersFromPhoneNumber
   public static void helper(String numbers, int pos, StringBuilder sb) {
     
     if (numbers.length() == pos) {
-		System.out.println(sb.toString());
+	System.out.println(sb.toString());
       	return;
     }
         
@@ -40,10 +40,10 @@ public class GenerateNumbersFromPhoneNumber
       	helper(numbers, pos + 1, sb);
     } else {
       	for (int i = 0; i < letters.length(); i++) {
-        	sb.append(letters.charAt(i));
-			helper(numbers, pos + 1, sb);
-			sb.deleteCharAt(sb.length() - 1);
-		}
+	   sb.append(letters.charAt(i));
+	   helper(numbers, pos + 1, sb);
+	   sb.deleteCharAt(sb.length() - 1);
+	}
     }
     
   }
