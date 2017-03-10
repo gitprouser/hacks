@@ -16,7 +16,7 @@ public class GenerateNumbersFromPhoneNumber
     	case 6:  return "MNO";
     	case 7:  return "PQRS";
     	case 8:  return "TUV";
-    	case 9:  return "WXY";
+    	case 9:  return "WXYZ";
     	default:
     		throw new RuntimeException("incorrect input");
     }
