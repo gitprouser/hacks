@@ -4,11 +4,14 @@
 public class BinarySearch {
 
     public static void main(String[] args) {
-        int l_idx = leftMostBinarySearch(0, 9, new int[]{0, 1, 1, 1, 1, 1, 2, 2, 3, 3}, 1);
-        int r_idx = rightMostBinarySearch(0, 9, new int[]{0, 1, 1, 1, 1, 1, 2, 2, 3, 3}, 1);
+//        int l_idx = leftMostBinarySearch(0, 9, new int[]{0, 1, 1, 1, 1, 1, 2, 2, 3, 3}, 1);
+//        int r_idx = rightMostBinarySearch(0, 9, new int[]{0, 1, 1, 1, 1, 1, 2, 2, 3, 3}, 1);
+
+        int r_idx = nonRecursiveBinarySearch(new int[]{0, 1, 1, 1, 1, 1, 2, 2, 3, 3}, -1);
+        System.out.println(r_idx);
 
         // indexes that need to be looked at
-        System.out.println(l_idx + " " + r_idx);
+//        System.out.println(l_idx + " " + r_idx);
     }
 
     static int leftMostBinarySearch(int low, int high, int[] arr, int key) {
@@ -46,5 +49,20 @@ public class BinarySearch {
             } else
                 return rightMostBinarySearch(mid + 1, high, arr, key);
         }
+    }
+
+    static int nonRecursiveBinarySearch(int[] A, int n) {
+        int lo = 1, high = A.length;
+        int mid = lo + (high - lo) / 2;
+
+        while (lo <= high) {
+            if (A[mid] == n)
+                return mid;
+            else if (A[mid] < n)
+                lo = mid + 1;
+            else
+                high = mid - 1;
+        }
+        throw new RuntimeException("did not find element"); // target not found
     }
 }

@@ -13,9 +13,15 @@ public class Testing {
 
 
     public static String[] firstThreeOccurances(String str) {
-        Map<String, Integer> map = new HashMap<String, Integer>();
-        CustomComparator<String> comp = new CustomComparator<String>(map);
-        TreeMap<String,Integer> revertIdx = new TreeMap<String,Integer>(comp);
+        Map<String, Integer> map = new HashMap<>();
+        CustomComparator<String> comp = new CustomComparator<>(map);
+
+        TreeMap<String,Integer> revertIdx = new TreeMap<>(new Comparator <String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                return map.get(s1) - map.get(s2);
+            }
+        });
 
         str = str.trim();
 
@@ -41,6 +47,7 @@ public class Testing {
             this.base = base;
         }
 
+        @Override
         public int compare(String a, String b) {
             // return ((Integer)base.get((String) a) >= (Integer)base.get((String) b))? -1 : 1;
             return (base.get(a) >= base.get(b))? -1 : 1;

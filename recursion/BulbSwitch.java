@@ -32,6 +32,8 @@ public class BulbSwitch {
         }
     }
 
+
+
     public static void main(String[] args) {
         Node root =  buildTree(4);
         System.out.println(root.startIdx);
