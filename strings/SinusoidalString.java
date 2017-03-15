@@ -11,9 +11,10 @@
  * L      e      ~      g
  */
 public class SinusoidalString {
+    final static String SPACE_7 = "       ";
     final static String SPACE_5 = "     ";
-    final static String SPACE_4 = "    ";
-    final static String SPACE_2 = "  ";
+    final static String SPACE_3 = "   ";
+    final static String SPACE_1 = " ";
 
     public static void main(String[] args) {
         printSinusoidalString();
@@ -30,22 +31,22 @@ public class SinusoidalString {
         String str = "LinkedIn Bought";
         StringBuilder sb = new StringBuilder();
 
-        sb.append(SPACE_4);
+        sb.append(SPACE_3);
         for (int i = 2; i < str.length(); i += 4) {
             if (str.charAt(i) == ' ')
                 sb.append("~");
             else
                 sb.append(str.charAt(i));
-            sb.append(SPACE_4);
+            sb.append(SPACE_7);
         }
         sb.append("\n");
-        sb.append(SPACE_2);
+        sb.append(SPACE_1);
         for (int i = 1; i < str.length(); i += 2) {
             if (str.charAt(i) == ' ')
                 sb.append("~");
             else
                 sb.append(str.charAt(i));
-            sb.append(SPACE_2);
+            sb.append(SPACE_3);
         }
         sb.append("\n");
 
@@ -54,7 +55,7 @@ public class SinusoidalString {
                 sb.append("~");
             else
                 sb.append(str.charAt(i));
-            sb.append(SPACE_5);
+            sb.append(SPACE_7);
         }
         System.out.println(sb.toString());
     }
