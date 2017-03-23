@@ -11,6 +11,8 @@
 
     Note:
     You may assume that you have an infinite number of each kind of coin.
+    
+    
 */
 
 public class CoinChangeProblem {
@@ -29,6 +31,11 @@ public class CoinChangeProblem {
             min[i] = Integer.MAX_VALUE;
         
         min[0] = 0;   // when you have zero amount to make there are zero ways to do it.
+        
+        // or you could initialize the arry to Integer.MAX_VALUE from idx=1 and leave idx=0 min[idx]=0 
+        // I did this specifically to remember why we do the min[0] = 0;
+        
+        
         for (int i = 1; i <= amount; i++) {
             for (int j = 0; j < coins.length; j++) {
                 if (coins[j] <= i                               // value is less than amount
