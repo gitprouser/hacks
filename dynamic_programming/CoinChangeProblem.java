@@ -34,6 +34,8 @@ public class CoinChangeProblem {
         
         // or you could initialize the arry to Integer.MAX_VALUE from idx=1 and leave idx=0 min[idx]=0 
         // I did this specifically to remember why we do the min[0] = 0;
+        // for (int i = *1*; i < min.length; i++)
+        //      min[i] = Integer.MAX_VALUE:
         
         
         for (int i = 1; i <= amount; i++) {
