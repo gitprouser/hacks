@@ -1,5 +1,5 @@
 
-Given a list of intergers, pick the top n elemts from the list.
+// Given a list of intergers, pick the top n elemts from the list.
 public class TopNElements {
     // O(NLogN)
     // O(N) 
