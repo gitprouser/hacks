@@ -17,7 +17,9 @@ public class SinusoidalString {
     final static String SPACE_1 = " ";
 
     public static void main(String[] args) {
-        printSinusoidalString();
+//        printSinusoidalString();
+//        System.out.println(convert("PAYPALISHIRING", 3));
+        System.out.println(countAndSay(1));
     }
 
 
@@ -59,4 +61,54 @@ public class SinusoidalString {
         }
         System.out.println(sb.toString());
     }
+
+    public static String convert(String src, int numRows) {
+        if (src == null) {
+            return null;
+        }
+        if (numRows == 1) {
+            return src;
+        }
+        StringBuilder dest = new StringBuilder();
+
+        for (int i = 0; i < numRows; i++) {
+            int count = i;
+            while (count < src.length()) {
+                dest.append(src.charAt(count));
+                if (i != 0 && i != numRows - 1) {
+                    int position = count + 2 * (numRows - 1) - 2 * i;
+                    if (position < src.length()) {
+                        dest.append(src.charAt(position));
+                    }
+                }
+                count = count + 2 * (numRows - 1);
+            }
+        }
+        return dest.toString();
+    }
+
+    public static String countAndSay(int n) {
+        if (n == 0 || n == 1) {
+            return "" + n;
+        }
+        StringBuilder s2 = new StringBuilder("1");
+        for (int i = 1; i < n; i++) {
+            StringBuilder s1 = s2;
+            s2 = s2.delete(0, s2.length());
+            int count = 1;
+            for (int j = 1; j < s1.length(); j++) {
+                if (s1.charAt(j) == s1.charAt(j-1)) {
+                    count++;
+                } else {
+                    s2 = s2.append(count);
+                    s2 = s2.append(s1.charAt(j-1));
+                    count = 1;
+                }
+            }
+            s2 = s2.append(count);
+            s2 = s2.append(s1.charAt(s1.length() - 1));
+        }
+        return s2.toString();
+    }
+
 }
