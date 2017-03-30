@@ -4,7 +4,6 @@ public class TopNElements {
     // O(NLogN)
     // O(N) 
     static PriorityQueue<Integer> pq = new PriorityQueue<>();
-    }
 
    // 1,3,6,3,7,8,9
    // top 3
@@ -18,8 +17,8 @@ public class TopNElements {
             }
         }
     }
-    
-    
+
+
     public static List<Integer> topNElements(int N, List<Integer> arr) {
         insert(arr, N);
         List<Integer> result = new ArrayList<>();
@@ -29,7 +28,6 @@ public class TopNElements {
         while (pq.size() > 0) {
             result.add(pq.poll());
         }*/
-
     }
 
 
@@ -38,6 +36,5 @@ public class TopNElements {
         for (int i = 0; i < 100; i++) 
             arr.add(i);
         List<Integer> result = topNElements(10, arr);
-        
     }
 }
