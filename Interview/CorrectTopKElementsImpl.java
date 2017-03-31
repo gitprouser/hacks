@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 // Given a list of intergers, pick the top n elemts from the list.
+/**
+ For top K elements you want a *MIN HEAP* with only K elements. What's left in the PQ will be Top K Elements.
+ For bottom K elements you want a *MAX HEAP* with ONLY K elements. What's left in the PQ will Bottom K elements.
+*/
 public class CorrectTopKElementsImpl {
     // O(NLogN)
     // O(N) 
