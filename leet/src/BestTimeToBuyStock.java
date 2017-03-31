@@ -25,9 +25,23 @@ public class BestTimeToBuyStock {
         return profit;
     }
 
+    public static int maxProfitSell(int[] arr) {
+        if (arr == null)
+            return -1;
+
+        int profit = 0;
+        int minValue = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            minValue = Math.min(arr[i], minValue);
+            profit = Math.max(arr[i] - minValue, profit);
+        }
+        return profit;
+    }
+
 
     public static void main(String args[]) {
         int[] arr = {10,3,12,1145,17,29,122,22,18,-10};
         System.out.println(maxProfit(arr));
+        System.out.println(maxProfitSell(arr));
     }
 }
