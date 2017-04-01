@@ -25,7 +25,7 @@ public class BestTimeToBuyStock {
         return profit;
     }
 
-    public static int maxProfitSell(int[] arr) {
+    public static int maxProfitSellSimplified(int[] arr) {
         if (arr == null)
             return -1;
 
@@ -37,7 +37,6 @@ public class BestTimeToBuyStock {
         }
         return profit;
     }
-
 
     public static void main(String args[]) {
         int[] arr = {10,3,12,1145,17,29,122,22,18,-10};
