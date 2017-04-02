@@ -8,8 +8,14 @@ class IntegerToRoman {
     char[] roman = {'M', 'D', 'C', 'L', 'X', 'V', 'I'};
     int[] value = {1000, 500, 100, 50, 10, 5, 1};
     
-    for (int i = 0; i < 7; i += 2) {
-      int msd = n / value[i];    // msd = mostSignificantDigit
+    // msd = mostSignificantDigit   *1* 985
+    // lsd = leastSignificantDigit   1*985*
+    for (int i = 0; i < 7; i += 2) {  // Increments by two because for msd we divide by
+                                      // thousands place msd = 1000   i = 0
+                                      // Hundreds place msd = 100     i = 2
+                                      // Tens place msd = 10     i = 4
+                                      // Ones place msd = 1     i = 6
+      int msd = n / value[i];
       
       if (msd < 4) {
         for (int j = 1; j <= 4; j++)
@@ -23,7 +29,7 @@ class IntegerToRoman {
       } else if (msd == 9) {
         res += roman[i] + roman[i - 2];
       }
-      msd %= value[i];
+      n %= value[i];  // remove the msd and keep the Least significant digits.
     }
     return res;
   }
