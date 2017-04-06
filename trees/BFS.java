@@ -82,6 +82,16 @@ public class BFS {
         }
     }
 
+    static void breadthFirstSearch(Queue<Node> queue) {
+        while (!queue.isEmpty()) {
+            int n = queue.size();
+            for (int i = 0; i < n ; i++ ) {
+                Node curr = queue.poll();
+
+            }
+        }
+    }
+
     static void dfsTraverse(Stack<Node> stack) {
         while(!stack.empty()) {
             Node curr = stack.pop();
