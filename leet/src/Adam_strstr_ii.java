@@ -5,7 +5,6 @@ public class Adam_strstr_ii {
      * @return an integer as index
      */
     public int strStr2(String source, String target) {
-        // Write your code here
         if (source == null || target == null) {
             return -1;
         }
