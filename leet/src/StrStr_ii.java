@@ -24,10 +24,6 @@
             return -1;
         }
         
-        if (m == 0) {
-            return 0;
-        }
-        
         // mod could be any big integer
         // just make sure mod * 33 wont exceed max value of int.
         int mod = Integer.MAX_VALUE / 33;
