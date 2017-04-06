@@ -7,9 +7,10 @@
  
  public class StrStr_ii {
     public int strStr(String source, String target) {
-            if(target == null) {
+        if(target == null) {
             return -1;
         }
+
         int m = target.length();
         if(m == 0) {
             return 0;
