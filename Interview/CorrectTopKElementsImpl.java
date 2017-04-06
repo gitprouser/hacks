@@ -33,7 +33,7 @@ public class CorrectTopKElementsImpl {
                 // 1.) Add the current element because it's bigger than the smallest element in the queue.
                 // 2.) Remove the smallest element in the queue to get back the size of the PQ to N.
                 topNElements.offer(i);
-                topNElements.poll();                               // If size of PQ increases more than top N then remove item from PQ.
+                topNElements.poll();   // If size of PQ increases more than top N then remove item from PQ.
             }
         }
     }
