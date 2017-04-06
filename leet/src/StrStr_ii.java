@@ -6,7 +6,7 @@
  */
  
  public class StrStr_ii {
-    public int strStr(String haystack, String needle) {
+    public int strStr(String source, String target) {
             if(target == null) {
             return -1;
         }
