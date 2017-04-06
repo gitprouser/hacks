@@ -11,7 +11,7 @@
             return -1;
         }
         int m = target.length();
-        if(m==0) {
+        if(m == 0) {
             return 0;
         }
         
@@ -19,7 +19,7 @@
             return -1;
         }
         int n = source.length();
-        if(n==0) {
+        if(n == 0) {
             return -1;
         }
         
