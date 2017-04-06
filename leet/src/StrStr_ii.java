@@ -49,6 +49,11 @@
             }
 
             value = (value * 33 + source.charAt(i) - 'a') % mod;
+            // JAVA STUPID: You want to do this because in JAVA (-ve #) % (+ve #) gives 
+            // you a negative number, Egs (-4 % 3) = -1 
+            //  But you want the compliment of that so you add it with
+            // *mod* value. That is -4%3 = -1 + 3 = 2 which is the actual reminder
+            // THis is not required in Python.
             if (value < 0) {
                 value += mod;
             }
