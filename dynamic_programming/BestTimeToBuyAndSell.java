@@ -4,7 +4,7 @@ You may complete *Unlimited* number of transaction.
 
 
 Test Cases:
-t1= [1, 3, 1, 2]
+t1 = [1, 3, 1, 2]
 t2 = [1, 2, 3]
 t3 = [5, 3, 2]
 */
