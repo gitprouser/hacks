@@ -47,7 +47,7 @@ public class BestTimeToBuyAndSell {
             // Then add that to the maxProfit.
             maxPro += Math.max(maxPro, maxVal - a[i]);
             // Check if the current value is greater than maxValue seen so far. 
-            // 
+            // update maxVal for next iteration.
             maxVal = Math.max(a[i], maxVal);
         }
         return maxPro;
