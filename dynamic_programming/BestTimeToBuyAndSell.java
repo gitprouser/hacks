@@ -50,6 +50,21 @@ public class BestTimeToBuyAndSell {
             // update maxVal for next iteration.
             maxVal = Math.max(a[i], maxVal);
         }
+/**
+   line:48 - maxProfit should be checked with the previous maxValue not considering a[i]. 
+   maxValue is the maximum value seen from a[i + 1]....to....a[a.length - 1] (inclusive)
+   Therefore you cannot swap lines 51 and 48. 
+   Because that would mean you are
+   
+   Egs: <1, 2, 100>
+   Sample array for getting the maxValue of terms before a[i]: 
+   <100> when a[i] = 2
+   <2,100> when a[i] = 1
+   
+   line:51 - adds the current value to the maxValue sampling population. 
+            At Line 51 the sampling value is now a[i] ... to ... a[a.length - 1] (inclusive)
+   .
+ */
         return maxPro;
     }
 }
