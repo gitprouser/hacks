@@ -15,7 +15,7 @@ public class Solution {
     public int numIslands (char[][] grid) {
         // Store the given grid
         // This prevents having to make copies during recursion
-        g = Arrays.copyOf(grid, grid.length* grid[0].length);
+        g = grid;
 
         // Our count to return
         int c = 0;
