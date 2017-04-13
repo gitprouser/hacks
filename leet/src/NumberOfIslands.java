@@ -15,7 +15,7 @@ public class Solution {
     public int numIslands (char[][] grid) {
         // Store the given grid
         // This prevents having to make copies during recursion
-        g = grid;
+        g = deepCopy(grid);
 
         // Our count to return
         int c = 0;
@@ -62,4 +62,17 @@ public class Solution {
         dfs(i, j + 1);
         dfs(i, j - 1);
     }
+	
+    public static char[][] deepCopy(char[][] original) {
+        if (original == null) {
+            return null;
+        }
+    
+        final char[][] result = new char[original.length][];
+        for (int i = 0; i < original.length; i++) {
+            result[i] = Arrays.copyOf(original[i], original[i].length);
+        }
+        return result;
+    }	
+	
 }
