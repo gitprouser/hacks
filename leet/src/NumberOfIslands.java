@@ -76,3 +76,61 @@ public class Solution {
     }	
 	
 }
+
+/** 
+
+public class Solution {
+    
+    public int numIslands(char[][] grid) {
+        int cnt = 0;
+        int rows = grid.length;
+        if (rows == 0) return 0;
+        int cols = grid[0].length;
+
+        char[][] g = deepCopy(grid);
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (g[i][j] == '1') {
+                    _DFS(g, i, j);
+                    cnt += 1;
+                }
+            }
+        }
+        return cnt;
+    }
+
+    private void _DFS (char[][] arr, int i, int j) {
+        if (i < 0 || i >= arr.length || j < 0 || j >= arr[0].length || arr[i][j] != '1')
+            return;
+
+        arr[i][j] = '0';
+
+        _DFS(arr, i + 1, j);
+        _DFS(arr, i, j + 1);
+        _DFS(arr, i - 1, j);
+        _DFS(arr, i, j - 1);
+    }
+    
+    private void printMatrix(char[][] g) {
+        for(int i = 0; i < g.length; i++) {
+            for (int j = 0; j < g[0].length; j++) {
+                System.out.print( "[i=" + i + ", j=" + j + "]");
+                System.out.print(g[i][j] + " ");
+            } System.out.println();
+        }
+    }
+    
+    public static char[][] deepCopy(char[][] original) {
+        if (original == null)
+            return null;
+    
+        final char[][] result = new char[original.length][];
+        for (int i = 0; i < original.length; i++)
+            result[i] = Arrays.copyOf(original[i], original[i].length);
+
+        return result;
+    }
+}
+
+*/
