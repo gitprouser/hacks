@@ -5,6 +5,7 @@ you can make with the following criteria.
 - You may complete *Unlimited* number of transaction. 
 - You may buy and sell at any time. 
 - Given are only a list of prices in a given day of the stock.
+- In a given day you may buy only ONCE but you can sell multiple stocks in a given day.
 
 
 Test Cases:
