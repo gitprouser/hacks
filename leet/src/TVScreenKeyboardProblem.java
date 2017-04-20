@@ -33,8 +33,10 @@ in various different combinations, but at the end of the day you need to make
 
 Algorithm: 
 0.) Figure out the exact ascii offset from 'a' by doing the following: ord('s') - ord('a') = 18
-1.) Figure out the row you need to go to, 18/7 = 2 therefore row = 2
+1.) Figure out the row you need to go to, 18 / 7 = 2 therefore row = 2
 2.) Figure out the col you need to go to, 18 % 7 = 4 therefore row = 4
+3.) Go three (2 + 1) rows down.
+4.) Go Four(4) rows to the left.
 
 // Todo figure out the boundary conditions as well... 
 // - No left move, when you are at the 0th column. 
@@ -42,7 +44,22 @@ Algorithm:
 // - No down move, when you are at the 3rd row.
 // - No up move, when you are at the 0th row.
 
-*Algorithm for Row movement*
+==============================
+*Algorithm for row identification*::
+==============================
+1.) ord('s') - ord('a') = ascii_offset 
+2.) ascii_offset / 7 = row_no + 1
+
+
+==============================
+*Algorithm for co identification*::
+==============================
+1.) ord('s') - ord('a') = ascii_offset 
+2.) ascii_offset % 7 = col_no
+
+==============================
+*Algorithm for Row movement* :: 
+==============================
 if (from.row < to.row) 
   move down by Math.abs(from.row - to.row)
 else if (from.row > to.row)
@@ -50,17 +67,16 @@ else if (from.row > to.row)
 else
   stay in the same down
 
-*Algorithm for Col movement*
+==============================
+*Algorithm for Col movement* ::
+==============================
 if (from.col < to.col)
    move right by Math.abs(from.col - to.col)
 else if (from.col > to.col)
    move left by Math.abs(from.col - to.col)
 else 
-   stay in same col...
-
-
-3.) Go three rows down.
-4.) Go Four rows to the left.
+   stay in same col
+   
 
 */
 
