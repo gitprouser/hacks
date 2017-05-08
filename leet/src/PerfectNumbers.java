@@ -16,6 +16,13 @@ For egs:
 */
 
 class PerfectNumbers {
+    public static void main(String args[]) {
+        assert(findPefectNumbers(0) == 0);
+        assert(findPefectNumbers(6) == 1);
+        assert(findPefectNumbers(10) == 1);
+    }
+ 
+  
    /**
      Must take a single integer as an argument and return the count
      of perfect numbers less than or equal to that integer.
@@ -67,6 +74,8 @@ class PerfectNumbers {
     */
     private static void getDivisors(int numb, int[] divisors) {
         int idx = 0;
+        // Don't start from 0 because if you do start from zero you 
+        // will get a divide_by_zero error here...
         for (int j = 1; j < numb; j++) {
             if ((numb / j) * j == numb) {
                 divisors[idx++] = j; 
