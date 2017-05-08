@@ -21,7 +21,7 @@ class PerfectNumbers {
      of perfect numbers less than or equal to that integer.
 
      Sample I/O: 
-       - 0 return 0.
+       - 0 return 0.  == Remember 0 is not a perfect number for our consideration here.
        - 6 returns 1.
        - 28 returns 2.
    
@@ -33,7 +33,8 @@ class PerfectNumbers {
     */
     public static int findPefectNumbers(int N) {
       int cnt = 0;
-      for (int i = 0; i <= input; i++) {
+      // Start from 1 because you do not add 0 as a perfect number.
+      for (int i = 0; i < input; i++) {
         if (isPerfectNumb(i))
           ++cnt;
       }
