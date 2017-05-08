@@ -16,21 +16,18 @@ For egs:
 */
 
 class PerfectNumbers {
-    /**
-      Must take a single integer as an argument and return the count
-      of perfect numbers less than or equal to that integer.
-
-      Sample I/O: 
-        - 0 return 0.
-        - 6 returns 1.
-        - 28 returns 2.
-    */
-    int findPerfectNumbers(int N){ 
-    }
-
    /**
+     Must take a single integer as an argument and return the count
+     of perfect numbers less than or equal to that integer.
+
+     Sample I/O: 
+       - 0 return 0.
+       - 6 returns 1.
+       - 28 returns 2.
+   
       Returns an integer denoting the number of perfect 
       numbers less than or equal to input. 
+
       @param input an integer
       @return an integer
     */
