@@ -55,7 +55,7 @@ class PerfectNumbers {
         getDivisors(numb, divisors);
         boolean isPerfect = false;
         int sum = 0;
-        for (int i = 0; i < 500; i++)
+        for (int i = 1; i < 500; i++)
             sum += divisors[i];
         
         if (sum == input)
@@ -69,7 +69,7 @@ class PerfectNumbers {
     */
     private static void getDivisors(int numb, int[] divisors) {
         int idx = 0;
-        for (int j = 0; j < numb; j++) {
+        for (int j = 1; j < numb; j++) {
             if ((numb / j) * j == numb) {
                 divisors[idx++] = j; 
             }
