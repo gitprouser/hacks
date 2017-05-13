@@ -73,16 +73,37 @@ class TransformBinaryTree {
 		Node root_left = new Node(root_left_left, root_left_righ, 20);	
 		Node root = new Node(root_left, root_right, 10);	
 		toSumTree(root);
+        _postOrderTraversal(root);
 		System.out.println("\n############  Test Case #2  ############");	
 		// Test Case #2 	
 		root_right = new Node(null, null, 3);	
 		root_left = new Node(null, null, 2);	
 		root = new Node(root_left, root_right, 1);	
 		toSumTree(root);
+        _postOrderTraversal(root);
 		System.out.println();	
 	}     
 
+
 	public static void toSumTree(Node root) {
+        root.data = helper(root.left) + helper(root.right);
+    }
+    
+    static int helper(Node root) { // replace root's value with
+    // the sum of its children, and return its own value + sum
+        if (root == null) {
+            return 0;
+        }
+        int tmp = root.data;
+        int left = helper(root.left);
+        int right = helper(root.right);
+        root.data = left + right;
+        return tmp + root.data;
+    }
+
+
+
+	public static void ___toSumTree(Node root) {
         _toSumTree(root);
         _postOrderTraversal(root);
     }
