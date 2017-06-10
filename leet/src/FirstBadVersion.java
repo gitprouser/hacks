@@ -21,16 +21,18 @@ public class FirstBadVersion {
         // Step 1. Remember you want to keep two elements to look up base
         while (start + 1 < end) {
             int mid = start + (end - start) / 2;  // mid point best code.
-            if (arr[mid] == 1) {
-                end = mid;
+            if (arr[mid] == 1) {  // if the product doesn't meet quality
+                end = mid;        // Remove all the products to the right because you know they will also not meet the
+                                  // quality requirement.
             } else {
-                start = mid;
+                start = mid;      // If the product meets the quality forget all products to the left of this because
+                                  // you know for a fact those products will also meet the quality.
             }
         }
-        if (arr[start] == 1) {
+        if (arr[start] == 1) {    // if the left product is bad then that's the left most.
             return start;
         }
-        return end;
+        return end;               // else the right product in the tuple is the first bad product.
     }
 
     public static int lastBadVersion(int n) {

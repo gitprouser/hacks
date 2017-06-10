@@ -7,8 +7,10 @@ public class BinarySearch {
 //        int l_idx = leftMostBinarySearch(0, 9, new int[]{0, 1, 1, 1, 1, 1, 2, 2, 3, 3}, 1);
 //        int r_idx = rightMostBinarySearch(0, 9, new int[]{0, 1, 1, 1, 1, 1, 2, 2, 3, 3}, 1);
 
-        int r_idx = nonRecursiveBinarySearch(new int[]{0, 1, 1, 1, 1, 1, 2, 2, 3, 3}, -1);
-        System.out.println(r_idx);
+        System.out.println("hello");                // 0  1  2  3  4  5  6  7  8  9
+        int l_idx = nonRecursiveBinarySearch(new int[]{0, 1, 1, 1, 1, 1, 2, 2, 3, 3}, 1);
+        int r_idx = nonRecursiveRightMostBinarySearch(new int[]{0, 1, 1, 1, 1, 1, 2, 2, 3, 3}, 1);
+        System.out.println(l_idx + " " + r_idx);
 
         // indexes that need to be looked at
 //        System.out.println(l_idx + " " + r_idx);
@@ -52,17 +54,37 @@ public class BinarySearch {
     }
 
     static int nonRecursiveBinarySearch(int[] A, int n) {
-        int lo = 1, high = A.length;
-        int mid = lo + (high - lo) / 2;
+        int lo = 0, high = A.length - 1;
 
-        while (lo <= high) {
+        // Step 1. Remember you want to keep two elements to look up base
+        while (lo + 1 < high) {
+            int mid = lo + (high - lo) / 2;  // mid point best code.
             if (A[mid] == n)
-                return mid;
-            else if (A[mid] < n)
-                lo = mid + 1;
+                high = mid;
             else
-                high = mid - 1;
+                lo = mid;
         }
-        throw new RuntimeException("did not find element"); // target not found
+
+        if (A[lo] == n)  return lo;
+        else if (A[high] == n) return high;
+        else throw new RuntimeException("did not find element"); // target not found
     }
+
+
+    static int nonRecursiveRightMostBinarySearch(int[] A, int n) {
+        int lo = 0, high = A.length - 1;
+
+        while (lo + 1 < high) {
+            int mid = lo + (high - lo) / 2;
+            if (A[mid] == n)
+                lo = mid;
+            else
+                high = mid;
+        }
+
+        if (A[high] == n)  return high;
+        else if (A[lo] == n) return lo;
+        else throw new RuntimeException("Did not find element");
+    }
+
 }
