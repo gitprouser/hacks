@@ -16,11 +16,19 @@ class Manacher {
         for (int i = 1; i < t.length - 1; i++) {
             int mirror = 2*center - i; // "mirror" is the mirror of "i" centered at "center"
 
-            if (right > i) // copying over the values of the left palindromic string 
+
+            // Updating the longest palindromic string at point i because you found the right
+            // wing to be longer than the current position i.
+            // When updating the value you are purposfully underestimating the
+            // value of the right wing, just to play it safe,
+            // by taking the lowest value between left wing (copying left wing value)
+            //             or currRight wing length whichever is lower than what you have now.
+            if (right > i)
                 p[i] = Math.min(right - i, p[mirror]);
 
-            while(t[i + (1 + p(i))] == t[i - (1 + p[i])])
-                p[i]++;
+
+            while(t[i + (1 + p[i])] == t[i - (1 + p[i])])
+                p[i]++;   // Increment the wings out on both sides by 1.
 
             // if palindrome centered at i expands past right,
             // adjust center based on expanded palindrome.
@@ -59,8 +67,8 @@ class Manacher {
                 center = i;
             }
         }
-        int startIdx = center - 1 - length / 2;
-        int endIdx = center - 1 + length / 2;
+        int startIdx = (center - 1 - length) / 2;
+        int endIdx = (center - 1 + length) / 2;
         return s.substring(startIdx, endIdx);
     }
 
@@ -69,8 +77,8 @@ class Manacher {
     public String longestPalindromicSubstring(int i) {
         int length = p[i + 2];
         int center = i + 2;
-        int startIdx = center - 1 - length / 2;
-        int endIdx = center - 1 + length / 2;
+        int startIdx = (center - 1 - length) / 2;
+        int endIdx = (center - 1 + length) / 2;
         return s.substring(startIdx, endIdx);
     }
 

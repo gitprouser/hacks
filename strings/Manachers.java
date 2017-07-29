@@ -11,12 +11,12 @@
  *
  ******************************************************************************/
 
-public class Manacher {
+public class Manachers {
     private int[]  p;  // p[i] = length of longest palindromic substring of t, centered at i
     private String s;  // original string
     private char[] t;  // transformed string
 
-    public Manacher(String s) {
+    public Manachers(String s) {
         this.s = s;
         preprocess();
         p = new int[t.length];
@@ -82,10 +82,10 @@ public class Manacher {
     // test client
     public static void main(String[] args) {
         String s = args[0];
-        Manacher manacher = new Manacher(s);
-        StdOut.println(manacher.longestPalindromicSubstring());
+        Manachers manacher = new Manachers(s);
+        System.out.println(manacher.longestPalindromicSubstring());
         for (int i = 0; i < 2*s.length(); i++)
-            StdOut.println(i +  ": " + manacher.longestPalindromicSubstring(i));
+            System.out.println(i +  ": " + manacher.longestPalindromicSubstring(i));
          
     }
 }
