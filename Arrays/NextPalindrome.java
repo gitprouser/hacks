@@ -22,9 +22,8 @@ Solution: http://www.geeksforgeeks.org/given-a-number-find-next-smallest-palindr
 public class NextPalindrome {
 
     static int bruteForce(int num) {
-        while (! isPalindrome(num)) {
-            num += 1;
-        }
+        while (isPalindrome(num++)) ;
+        System.out.println(num);
         return num;
     }
 
