@@ -5,6 +5,8 @@ public class NQueens {
     }
 
     private static void solveNQueens(int n) {
+        // The entire 2D chess board is shrunk into a 1D array
+        // The problem is reduced into permutation problem hence removing row and column check
         int[] arr = new int[n];
         for (int i = 0; i < arr.length; i++)
             arr[i] = i;
@@ -58,6 +60,7 @@ public class NQueens {
     }
 
     // NewQueen against all the previous queens.
+    // The slope of the y axis and the x axis are the same. (Signs do not matter since they might be increasing or decreasing)
     private static boolean isNewQueenThreatningOtherQueens(int[] game, int newQueen) {
         for (int j = 0; j < newQueen; j++)
             if (Math.abs(game[newQueen] - game[j])  == Math.abs(newQueen - j))
