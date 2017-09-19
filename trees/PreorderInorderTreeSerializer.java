@@ -11,7 +11,6 @@ class PreorderInorderTreeSerializer {
         }
     }
 
-
     public static void main(String args[]) {
         TreeNode root = init();
         System.out.println(serialize(root));
