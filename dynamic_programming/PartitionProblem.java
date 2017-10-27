@@ -44,12 +44,12 @@ class PartitionProblem {
         // Fill the partition table in botton up manner
         for (int i = 1; i <= sum/2; i++) {
             for (int j = 1; j <= n; j++) {
-                prettyPrint(part, sum, n);
+                // prettyPrint(part, sum, n);
                 part[i][j] = part[i][j-1];
                 if (i >= arr[j-1])
                     part[i][j] = part[i][j] || part[i - arr[j-1]][j-1];
             }
-            prettyPrint(part, sum, n);
+            // prettyPrint(part, sum, n);
         }
 
         prettyPrint(part, sum, n);
@@ -58,7 +58,9 @@ class PartitionProblem {
 
     /*Driver function to check for above function*/
     public static void main (String[] args) {
-        int arr[] = {3, 1, 1, 2, 2,1};
+//        int arr[] = {4,1,-5,6,-11,3};
+        int arr[] = {4,1,5,6,11,3};
+//        int arr[] = {3,1,1,2,2,1};
         int n = arr.length;
         System.out.println("{" + Arrays.stream(arr).mapToObj(String::valueOf).collect(Collectors.joining(","))+ "}" + "\n" );
         if (findPartition(arr, n) == true)

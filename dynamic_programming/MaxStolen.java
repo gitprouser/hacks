@@ -19,8 +19,10 @@ class MaxStolen {
         dp[0] = arrHouseValues[0];
         dp[1] = Math.max(arrHouseValues[0], arrHouseValues[1]);
 
-        for (int i = 2; i < arrHouseValues.length; i++)
+        for (int i = 2; i < arrHouseValues.length; i++) {
             dp[i] = Math.max(dp[(i - 1)], dp[(i - 2)] + arrHouseValues[i]);
+            System.out.println(dp[i]);
+        }
 
         for (int i = 0; i < dp.length; i++)
             System.out.print(dp[i] + " ");

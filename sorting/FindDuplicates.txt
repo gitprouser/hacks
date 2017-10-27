@@ -1,0 +1,29 @@
+Find a duplicated number in a loose permutation of numbers.
+A permutation is an array that is size N, and also has positive numbers from 1 thru N.
+A loose permutation is a permutation where some numbers are missing and some are duplicated, but the total number is still N.
+ * We want to find any one duplicated number; not necessarily the first or the least.
+ * It can occur anywhere in the input array, and we don't care how many times it's duplicated.
+ * Input array may nor may not be sorted.
+ * You can only use constant extra memory.
+ * There is no limit/constraint on N i.e it is a normal 4-byte integer.
+
+  e.g.
+  Input: 1,7,4,3,2,7,4: This array has 7 numbers from 1 thru 7, with some missing (5 and 6) and some duplicated (4 and 7). 
+  Albeit unsorted, but sorting is irrelevant to a permutation.
+  Output: 4 or 7
+
+   Input: 3,1,2:  This array has nothing missing.
+   Output: -1
+
+Interview time: 30 minutes (This is a surprisingly aha! problem)
+Solution: Aim for constant memory and linear run time. Think bucket sort.
+About Test-cases: Test-cases only display one duplicated number. If that's not what your answer is, but your answer is still a duplicate number, then that's acceptable. 
+
+Ans.
+Use the most significant bit (MSB)  which is generally used for keeping track of positive and negatives. The idea is to use the offsets of the array as the representation of the number and the MSB 1/0 based on the fact that the number has been seen before or NOT. 
+
+Ex: 
+#      1 7 4 3 2 7 4
+idx    0 1 2 3 4 5 6
+
+
