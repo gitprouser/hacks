@@ -29,10 +29,16 @@ public class 3Sum {
                     // note that:
                     // 1. it is a while loop, not a simple if
                     // 2. don't forget left < right
+                    // 3. Reason for this while loop: SKIP duplicates
                     while (left != 0 && left < right && numbers[left] == numbers[left - 1]) {
+                        // ASK ADAM WHY should we check if left != 0?
+                        // ANS: Because you don't want to go to negative value with 0 and -1 in left
                         left++;
                     }
+                    // 3. Same reason for this while loop: SKIP duplicates
                     while (right != numbers.length - 1 && left < right && numbers[right] == numbers[right + 1]) {
+                        // ASK ADAM WHY should we check if left != 0?
+                        // ANS: Because you don't want to go to negative value with n-1 and n in right ArrayIndexOutOfB
                         right--;
                     }
                 } else if (sum > target) {
