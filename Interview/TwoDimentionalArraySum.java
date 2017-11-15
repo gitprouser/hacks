@@ -95,11 +95,18 @@ class TwoDimentionalArraySum {
                          "   End: (" + maxRowEnd + ", " + maxColEnd + ")");
     }
 
+    // O(N^3)
+    // http://www.geeksforgeeks.org/dynamic-programming-set-27-max-sum-rectangle-in-a-2d-matrix/
+    public static void kadane2D(int[][] a) {
+
+
+    }
+
 
 
     // O(N^2)
     // O(N^2) !!!
-    public static void kadane2D(int[][] a) {
+    public static void kadane2D_O_N_NO_IDEA(int[][] a) {
         int[][] s = new int[LENGTH + 1][LENGTH]; // [ending row][sum from row zero to ending row] (rows 1-indexed!)
         for (int r = 0; r < LENGTH + 1; r++) {
             for (int c = 0; c < LENGTH; c++) {
