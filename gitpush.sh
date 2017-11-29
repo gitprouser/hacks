@@ -2,5 +2,10 @@ git status
 echo "*********************"
 git pull origin master
 git add . 
-git commit -m "$1"
+if [ -n "$1" ]; then
+    git commit -m "$1"
+
+else
+    git commit -m `date +%Y%m%d`
+fi
 git push origin master

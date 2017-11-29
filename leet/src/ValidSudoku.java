@@ -16,7 +16,7 @@ class ValidSudoku {
              ... ... ...
              ... ... ...
         */
-        Character[][] fail_boardTestCase = {{'.','.','4','.','.','.','6','3','.'},
+        char[][] fail_boardTestCase = {{'.','.','4','.','.','.','6','3','.'},
                                     {'.','.','.','.','.','.','.','.','.'},
                                     {'5','.','.','.','.','.','.','9','.'},
                                     {'.','.','.','5','6','.','.','.','.'},
@@ -25,7 +25,8 @@ class ValidSudoku {
                                     {'.','.','.','5','.','.','.','.','.'},
                                     {'.','.','.','.','.','.','.','.','.'},
                                     {'.','.','.','.','.','.','.','.','.'}};
-        Character[][] pass_testCase2 = {
+
+        char[][] pass_testCase2 = {
             {'.','8','7','6','5','4','3','2','1'},
             {'2','.','.','.','.','.','.','.','.'},
             {'3','.','.','.','.','.','.','.','.'},
@@ -35,27 +36,55 @@ class ValidSudoku {
             {'7','.','.','.','.','.','.','.','.'},
             {'8','.','.','.','.','.','.','.','.'},
             {'9','.','.','.','.','.','.','.','.'}};
+        assert (isValidSudokuHashSet(pass_testCase2));
+        assert (! isValidSudokuHashSet(fail_boardTestCase));
 
+/*
         List<Character[][]> list = Arrays.asList(fail_boardTestCase, pass_testCase2);
-
         for (Character[][] c : list) {
             // System.out.println("Running Test case " + new ValidSudoku().getClass().getDeclaredField().getName());
-            assert !isValidSudoku(c);
+            // assert !isValidSudoku(c);
         }
+*/
+
     }
 
+    public static boolean isValidSudokuHashSet(char[][] board) {
+       for (int i = 0; i < 9; i++) {
+            Set<Character> rows = new HashSet<>();
+            Set<Character> cols = new HashSet<>();
+            Set<Character> cell = new HashSet<>();
+            for (int j = 0; j < 9; j++) {
 
-    public static boolean isValidSudoku(Character[][] board) {
+                if (board[i][j] != '.' && (! rows.add(board[i][j])))
+                    return false;
+
+                if (board[j][i] != '.' && (! cols.add(board[j][i])))
+                    return false;
+
+                int rowCell = 3 * (i / 3) + j / 3;
+                int colCell = 3 * (i % 3) + j % 3;
+
+                if (board[rowCell][colCell] != '.'
+                      && (! cell.add(board[rowCell][colCell])))
+                      return false;
+
+            }
+       }
+       return true;
+    }
+
+    public static boolean isValidSudoku(char[][] board) {
         boolean isValid = true;
         for(int r = 0; r < board.length; r++) {
             for(int c = 0; c < board[0].length; c++) {
-                isValid &= __isValid(board, r, c);
+                isValid &= __isValid_Brute(board, r, c);
             }
         }
         return isValid;
     }
 
-    private static boolean __isValid(Character[][] board, int row, int col) {
+    public static boolean __isValid_Brute(char[][] board, int row, int col) {
         if (board[row][col] == '.')
            return true;
 
@@ -74,8 +103,8 @@ class ValidSudoku {
         return true;
     }
 
-
-    private static boolean __isValidDebug(Character[][] board, int row, int col) {
+/*
+    private static boolean __isValid_Brute_with_prints_Debug(Character[][] board, int row, int col) {
         if (board[row][col] == '.')
            return true;
 
@@ -105,5 +134,8 @@ class ValidSudoku {
         }
         return true;
     }
+*/
 
 }
+
+
