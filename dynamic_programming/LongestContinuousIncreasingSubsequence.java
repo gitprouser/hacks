@@ -71,5 +71,5 @@ public class LongestContinuousIncreasingSubsequence {
 
         return maxSoFar;
     }
->>>>>>> 20180109
+
 }
